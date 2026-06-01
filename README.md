@@ -13,6 +13,22 @@ Full-screen static page with a **CSS orange background**, paper textures, **STAC
 
 Tape and button use **Encode Sans** from Google Fonts (internet required).
 
+## Temporary host on GitHub Pages
+
+Repo: [github.com/obhasha/Spectrum-studios](https://github.com/obhasha/Spectrum-studios)
+
+**One-time setup (in GitHub):**
+
+1. Open the repo → **Settings** → **Pages**
+2. Under **Build and deployment** → **Source**, choose **GitHub Actions**
+3. Push to `main` — the workflow deploys automatically
+
+**Live URL (after deploy):**
+
+`https://obhasha.github.io/Spectrum-studios/`
+
+*(Can take 1–2 minutes after the first successful workflow run.)*
+
 ## Local preview
 
 ```powershell
