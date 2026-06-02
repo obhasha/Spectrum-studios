@@ -1,12 +1,4 @@
-/* Spectrum Studios — CSS background + STACCTO titles + tape + Instagram */
-
-@font-face {
-  font-family: 'STACCTO';
-  src: url('../fonts/STACCTO.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+/* Spectrum Studios — asset-based layout */
 
 *,
 *::before,
@@ -19,7 +11,7 @@
 :root {
   --black: #111111;
   --white: #ffffff;
-  --orange: #fa4007;
+  --orange: #ff3d04;
   --tape-angle: 5.5deg;
 }
 
@@ -34,133 +26,64 @@ body {
   width: 100vw;
   height: 100vh;
   min-height: 100dvh;
-  background-color: var(--orange);
-  background-image:
-    radial-gradient(ellipse 120% 80% at 50% 30%, rgba(255, 120, 60, 0.28) 0%, transparent 58%),
-    radial-gradient(ellipse 70% 45% at 18% 75%, rgba(200, 50, 10, 0.12) 0%, transparent 50%),
-    linear-gradient(175deg, #ff4f1a 0%, var(--orange) 45%, #d63606 100%);
+  background: var(--orange);
   overflow: hidden;
 }
 
-/* Full-page paper grain & scratches */
-.page-grain {
+/* Rustic scratch overlay — top layer over title, star, tape text */
+.rustic-overlay {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 20;
   pointer-events: none;
-  opacity: 0.52;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
-  mix-blend-mode: multiply;
+  background: url('../assets/rustic-overlay.png') center / cover no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.95;
 }
 
-.page-grain-fine {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+/* ── Hero: main title + star assets ── */
+.hero {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  padding-top: clamp(1.25rem, 4.5vh, 3rem);
   pointer-events: none;
-  opacity: 0.16;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.35' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
-  background-size: 110px 110px;
-  mix-blend-mode: soft-light;
 }
 
-.page-scratches {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.13;
-  background-image:
-    linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.55) 43%, transparent 44%),
-    linear-gradient(78deg, transparent 58%, rgba(255, 255, 255, 0.35) 59%, transparent 60%),
-    linear-gradient(92deg, transparent 22%, rgba(255, 255, 255, 0.4) 23%, transparent 24%),
-    linear-gradient(86deg, transparent 68%, rgba(255, 255, 255, 0.45) 69%, transparent 70%),
-    linear-gradient(112deg, transparent 82%, rgba(255, 255, 255, 0.3) 83%, transparent 84%);
+.hero__title-wrap {
+  position: relative;
+  width: min(94vw, 1180px);
 }
 
-/* Torn paper bottom edge */
-.torn-edge {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: clamp(3.5rem, 9vh, 6rem);
-  z-index: 4;
-  pointer-events: none;
-  background: var(--white);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 100' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0,100 L0,35 C25,22 55,48 85,30 C115,12 145,8 175,28 C205,48 235,58 265,38 C295,18 325,12 355,32 C385,52 415,62 445,42 C475,22 505,18 535,34 C565,50 595,68 625,48 C655,28 685,20 715,36 C745,52 775,70 805,50 C835,30 865,22 895,38 C925,54 955,72 985,52 C1015,32 1045,24 1075,40 C1105,56 1135,74 1165,54 C1185,40 1195,32 1200,38 L1200,100 Z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 100' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0,100 L0,35 C25,22 55,48 85,30 C115,12 145,8 175,28 C205,48 235,58 265,38 C295,18 325,12 355,32 C385,52 415,62 445,42 C475,22 505,18 535,34 C565,50 595,68 625,48 C655,28 685,20 715,36 C745,52 775,70 805,50 C835,30 865,22 895,38 C925,54 955,72 985,52 C1015,32 1045,24 1075,40 C1105,56 1135,74 1165,54 C1185,40 1195,32 1200,38 L1200,100 Z'/%3E%3C/svg%3E");
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
+.main-title {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 8px;
 }
 
-/* ── STACCTO titles with rustic texture ── */
-.hero-titles {
+.star {
   position: absolute;
   z-index: 2;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding-top: clamp(1.25rem, 4vh, 2.75rem);
+  width: clamp(7.5rem, 28.5vw, 20.25rem);
+  height: auto;
+  left: 20%;
+  top: 54%;
+  transform: translate(-50%, 0) rotate(-5deg);
+  filter: drop-shadow(3px 5px 14px rgba(0, 0, 0, 0.35));
+  mix-blend-mode: screen;
+  animation: star-spin 8s linear infinite;
   pointer-events: none;
 }
 
-.title-spectrum {
-  position: relative;
-  z-index: 1;
-  margin-top: 8px;
-  font-family: 'STACCTO', Impact, sans-serif;
-  font-size: clamp(6rem, 26vw, 22rem);
-  font-weight: normal;
-  line-height: 0.78;
-  letter-spacing: 0;
-  text-align: center;
-  text-transform: uppercase;
-  width: 100%;
-}
-
-.title-studios {
-  position: relative;
-  z-index: 1;
-  font-family: 'STACCTO', Impact, sans-serif;
-  font-size: clamp(1rem, 3.2vw, 2.75rem);
-  font-weight: normal;
-  letter-spacing: 0.52em;
-  margin-right: -0.52em;
-  text-align: right;
-  text-transform: uppercase;
-  line-height: 1;
-  margin-top: -0.08em;
-  padding-right: clamp(2.5%, 6vw, 9%);
-  transform: translateX(-200px);
-}
-
-/* Distressed ink / print texture on type */
-.rustic-type {
-  position: relative;
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='tn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23tn)'/%3E%3C/svg%3E"),
-    linear-gradient(165deg, #1c1917 0%, #0a0a0a 45%, #151210 100%);
-  background-size: 100px 100px, 100% 100%;
-  background-blend-mode: overlay, normal;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.06));
-}
-
-.rustic-type::after {
-  content: '';
-  position: absolute;
-  inset: -4% -2%;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.35;
-  background-image:
-    linear-gradient(88deg, transparent 30%, rgba(255, 255, 255, 0.12) 31%, transparent 32%),
-    linear-gradient(95deg, transparent 70%, rgba(255, 255, 255, 0.08) 71%, transparent 72%);
+@keyframes star-spin {
+  from {
+    transform: translate(-50%, 0) rotate(-5deg);
+  }
+  to {
+    transform: translate(-50%, 0) rotate(355deg);
+  }
 }
 
 /* ── Animated COMING SOON tape ── */
@@ -169,7 +92,7 @@ body {
   z-index: 5;
   left: -10%;
   right: -10%;
-  top: calc(58% + 20px);
+  top: calc(58% + 120px);
   transform: translateY(-50%) rotate(var(--tape-angle));
   transform-origin: center center;
   overflow: hidden;
@@ -205,7 +128,6 @@ body {
     0 3px 14px rgba(0, 0, 0, 0.35);
 }
 
-/* Worn paper / fabric grain on tape */
 .tape::before {
   content: '';
   position: absolute;
@@ -218,7 +140,6 @@ body {
   mix-blend-mode: overlay;
 }
 
-/* Scratches, scuffs, faded edge wear */
 .tape::after {
   content: '';
   position: absolute;
@@ -230,10 +151,7 @@ body {
     linear-gradient(92deg, transparent 40%, rgba(255, 255, 255, 0.07) 41%, transparent 42%),
     linear-gradient(88deg, transparent 68%, rgba(255, 255, 255, 0.05) 69%, transparent 70%),
     linear-gradient(95deg, transparent 22%, rgba(255, 255, 255, 0.06) 23%, transparent 24%),
-    linear-gradient(105deg, transparent 82%, rgba(255, 255, 255, 0.04) 83%, transparent 84%),
-    radial-gradient(ellipse 30% 80% at 15% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 70%),
-    radial-gradient(ellipse 25% 70% at 85% 40%, rgba(0, 0, 0, 0.25) 0%, transparent 65%),
-    linear-gradient(180deg, rgba(255, 248, 240, 0.04) 0%, transparent 6%, transparent 94%, rgba(0, 0, 0, 0.2) 100%);
+    linear-gradient(105deg, transparent 82%, rgba(255, 255, 255, 0.04) 83%, transparent 84%);
 }
 
 .tape-track {
@@ -267,9 +185,7 @@ body {
   white-space: nowrap;
   text-transform: uppercase;
   line-height: 1;
-  text-shadow:
-    0 1px 0 rgba(0, 0, 0, 0.5),
-    0 0 12px rgba(255, 255, 255, 0.08);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
 .tape-loader {
@@ -295,12 +211,12 @@ body {
   }
 }
 
-/* Instagram pill button */
+/* Instagram pill — centered */
 .ig-link {
   position: absolute;
-  z-index: 10;
+  z-index: 25;
   left: 50%;
-  bottom: calc(9.5% + 100px);
+  bottom: calc(9.5% + 0px);
   transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
@@ -323,13 +239,8 @@ body {
   border: 1px solid var(--black);
   border-radius: 999px;
   background: transparent;
-  box-shadow: none;
   cursor: pointer;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.15s ease;
+  transition: background 0.2s ease;
 }
 
 .ig-icon {
@@ -342,38 +253,39 @@ body {
 .ig-link:hover,
 .ig-link:focus-visible {
   background: rgba(0, 0, 0, 0.08);
-  color: var(--black);
   transform: translateX(-50%);
   outline: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .tape-track,
-  .tape-loader {
+  .tape-loader,
+  .star {
     animation: none;
+  }
+
+  .star {
+    transform: translate(-50%, 0) rotate(-5deg);
   }
 }
 
 @media (max-aspect-ratio: 3/4) {
-  .title-spectrum {
-    font-size: clamp(4.5rem, 24vw, 8rem);
-    line-height: 0.85;
+  .hero__title-wrap {
+    width: 98vw;
   }
 
-  .title-studios {
-    letter-spacing: 0.38em;
-    margin-right: -0.38em;
-    padding-right: 4%;
-    font-size: clamp(0.75rem, 3.5vw, 1.25rem);
+  .star {
+    width: clamp(6rem, 33vw, 11.25rem);
+    left: 18%;
+    top: 52%;
   }
 
   .tape-wrap {
-    top: calc(56% + 20px);
+    top: calc(56% + 120px);
   }
 
   .ig-link {
-    bottom: calc(11% + 100px);
-    padding: 0.55em 1.4em;
+    bottom: calc(11% + 0px);
     font-size: clamp(0.45rem, 2.9vw, 0.62rem);
     letter-spacing: 0.12em;
   }
@@ -381,14 +293,10 @@ body {
 
 @media (min-aspect-ratio: 21/9) {
   .tape-wrap {
-    top: calc(57% + 20px);
+    top: calc(57% + 120px);
   }
 
   .ig-link {
-    bottom: calc(10% + 100px);
-  }
-
-  .title-studios {
-    padding-right: 7.5%;
+    bottom: calc(10% + 0px);
   }
 }

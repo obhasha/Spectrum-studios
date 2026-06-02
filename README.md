@@ -1,33 +1,25 @@
 # Spectrum Studios — Coming Soon Page
 
-Full-screen static page with a **CSS orange background**, paper textures, **STACCTO** titles, animated tape, and Instagram link.
+Full-screen static page matching the brand layout with asset-based typography and textures.
 
-## Upload to GoDaddy (`public_html`)
+## Upload to GoDaddy / GitHub Pages
 
 | Path | Required |
 |------|----------|
 | `index.html` | Yes |
 | `css/style.css` | Yes |
-| `fonts/STACCTO.otf` | Yes |
+| `assets/main-title.png` | Yes |
+| `assets/star.png` | Yes |
+| `assets/rustic-overlay.png` | Yes |
 | `assets/tape-loader.svg` | Yes |
 
-Tape and button use **Encode Sans** from Google Fonts (internet required).
+Tape and button use **Encode Sans** (Google Fonts).
 
-## Temporary host on GitHub Pages
-
-Repo: [github.com/obhasha/Spectrum-studios](https://github.com/obhasha/Spectrum-studios)
-
-**One-time setup (in GitHub):**
-
-1. Open the repo → **Settings** → **Pages**
-2. Under **Build and deployment** → **Source**, choose **GitHub Actions**
-3. Push to `main` — the workflow deploys automatically
-
-**Live URL (after deploy):**
+## GitHub Pages
 
 `https://obhasha.github.io/Spectrum-studios/`
 
-*(Can take 1–2 minutes after the first successful workflow run.)*
+Enable **Settings → Pages → GitHub Actions**, then push to `main`.
 
 ## Local preview
 
@@ -36,10 +28,11 @@ cd "c:\99xProjectDir\Work\Go-Vibe\Spectrum"
 npx serve .
 ```
 
-## What’s on the page
+## Layout
 
-- **Background** — Orange gradient + grain + scratch textures (no image file)
-- **Titles** — SPECTRUM / STUDIOS in STACCTO with rustic distressed type
-- **Tape** — Rustic black band, scrolling “COMING SOON!” + spinner
-- **Torn edge** — White ripped-paper effect at the bottom
-- **Instagram** — [instagram.com/spectrumstudios.asia](https://www.instagram.com/spectrumstudios.asia)
+- **Background** — `#FF3D04`
+- **Rustic overlay** — `rustic-overlay.png` (screen blend)
+- **Title** — `main-title.png` (SPECTRUM + STUDIOS)
+- **Star** — `star.png` overlapping the title
+- **Tape** — animated COMING SOON + spinner
+- **Instagram** — centered pill with logo
