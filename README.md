@@ -12,8 +12,9 @@ Full-screen static page matching the brand layout with asset-based typography an
 | `assets/star.png` | Yes |
 | `assets/rustic-overlay.png` | Yes |
 | `assets/tape-loader.svg` | Yes |
+| `fonts/MonumentExtended-Regular.otf` | Yes (tape text) |
 
-Tape and button use **Encode Sans** (Google Fonts).
+Tape uses **Monument Extended** (local). Button uses **Encode Sans** (Google Fonts).
 
 ## GitHub Pages
 
